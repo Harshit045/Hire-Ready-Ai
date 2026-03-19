@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import styled, { createGlobalStyle } from "styled-components";
 import "@fontsource/poppins/600.css";
+const BASE_URL = "https://hire-ready-ai.onrender.com";
 
 const GlobalStyle = createGlobalStyle`
   :root {
@@ -189,7 +190,7 @@ function App(){
     setLoading(true);
     setAnalysis(""); setJobs([]); setFinalResult(null);
     try{
-      const r = await axios.post("https://hire-ready-ai.onrender.com/analyze_resume", fd, {
+      const r = await axios.post(`${BASE_URL}/analyze_resume`, fd, {
         headers: {"Content-Type": "multipart/form-data"}
       });
       if(r.data.error){
@@ -209,7 +210,7 @@ function App(){
     try{
       const fd = new FormData();
       fd.append("job_role", role);
-      const r = await axios.post("https://hire-ready-ai.onrender.com/interview/start", fd);
+      const r = await axios.post(`${BASE_URL}/interview/start`, fd);
       if(r.data.error) { alert(r.data.error); return; }
       setSessionId(r.data.session_id);
       setCurrentQuestion(r.data.question);
@@ -228,7 +229,7 @@ function App(){
       const fd = new FormData();
       fd.append("session_id", sessionId);
       fd.append("answer", answerText);
-      const r = await axios.post("https://hire-ready-ai.onrender.com/interview/answer", fd);
+      const r = await axios.post(`${BASE_URL}/interview/answer`, fd);
       if(r.data.error){ alert(r.data.error); return; }
 
       if(r.data.completed){
