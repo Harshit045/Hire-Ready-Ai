@@ -209,7 +209,7 @@ function App(){
     try{
       const fd = new FormData();
       fd.append("job_role", role);
-      const r = await axios.post("https://hire-ready-ai.onrender.com/analyze_resume", fd);
+      const r = await axios.post("https://hire-ready-ai.onrender.com/interview/start", fd);
       if(r.data.error) { alert(r.data.error); return; }
       setSessionId(r.data.session_id);
       setCurrentQuestion(r.data.question);
@@ -228,7 +228,7 @@ function App(){
       const fd = new FormData();
       fd.append("session_id", sessionId);
       fd.append("answer", answerText);
-      const r = await axios.post("https://hire-ready-ai.onrender.com/analyze_resume", fd);
+      const r = await axios.post("https://hire-ready-ai.onrender.com/interview/answer", fd);
       if(r.data.error){ alert(r.data.error); return; }
 
       if(r.data.completed){
