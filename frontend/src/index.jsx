@@ -189,7 +189,7 @@ function App(){
     setLoading(true);
     setAnalysis(""); setJobs([]); setFinalResult(null);
     try{
-      const r = await axios.post("http://127.0.0.1:8000/analyze_resume", fd, {
+      const r = await axios.post("https://hire-ready-ai.onrender.com/analyze_resume", fd, {
         headers: {"Content-Type": "multipart/form-data"}
       });
       if(r.data.error){
@@ -209,7 +209,7 @@ function App(){
     try{
       const fd = new FormData();
       fd.append("job_role", role);
-      const r = await axios.post("http://127.0.0.1:8000/interview/start", fd);
+      const r = await axios.post("https://hire-ready-ai.onrender.com/analyze_resume", fd);
       if(r.data.error) { alert(r.data.error); return; }
       setSessionId(r.data.session_id);
       setCurrentQuestion(r.data.question);
@@ -228,7 +228,7 @@ function App(){
       const fd = new FormData();
       fd.append("session_id", sessionId);
       fd.append("answer", answerText);
-      const r = await axios.post("http://127.0.0.1:8000/interview/answer", fd);
+      const r = await axios.post("https://hire-ready-ai.onrender.com/analyze_resume", fd);
       if(r.data.error){ alert(r.data.error); return; }
 
       if(r.data.completed){
@@ -322,8 +322,8 @@ function App(){
         <FooterTitle>FOLLOW US ON :</FooterTitle>
         <Divider />
         <Social>
-          <a href="https://www.facebook.com" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook"/></a>
-          <a href="https://twitter.com" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Twitter_new_X_logo.png" alt="Twitter"/></a>
+          <a href="https://www.facebook.com/share/181u6YaW6U/" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook"/></a>
+          
           <a href="https://www.instagram.com/harvitron_tech" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram"/></a>
           
         </Social>
