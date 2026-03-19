@@ -1,0 +1,20 @@
+# Hire Ready AI 🚀
+
+An AI-powered resume analyzer and interview simulator.
+
+## Features
+- Resume Analysis using AI
+- Suggested Job Roles
+- AI-based Interview Simulation
+- Real-time Feedback & Scoring
+
+## Tech Stack
+- Frontend: React (Styled Components)
+- Backend: FastAPI (Python)
+- Deployment: Render
+
+## Live Demo
+https://hire-ready-ai-1.onrender.com
+
+## GitHub
+https://github.com/Harshit045/Hire-Ready-Ai
